@@ -81,10 +81,29 @@
 
     .text_input {
         position:absolute 
-        display: inline-block; padding-left: 2px;
+        display: inline-block;
+        padding-left: 2px;
         flex-direction:center;
         width: 110px;
-        margin: 0 px;
+        margin-left: 30px;
+        padding: 0px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 2px;
+        text-align:center;
+        justify-content:center;
+        
+    }
+
+   .text_input1 {
+        position:absolute 
+        display: inline-block;
+        padding-left: 2px;
+        flex-direction:center;
+        width: 110px;
+        margin-right: 30px;
         padding: 0px;
         border: 2px solid #3498db;
         border-radius: 5px;
@@ -135,7 +154,7 @@
         font-weight:bold;
     }
     [for="result8"]{
-        margin-left:20%;
+        margin-left:40%;
         font-weight:bold;
     }
     .hora {
@@ -160,23 +179,23 @@
         <input class="Nome" type="text" id="name"placeholder="Nome"><br>
       
         <label for="result1"> RED BULL BRAGATINO Sp </label>  <label class="f" for="result2"> SOUZA Pb  </label><br>
-        <input type="tel" id="result1" class="text_input" maxlength="1"> X
+        <input type="tel" id="result1" class="text_input1" maxlength="1"> X
         <input type="tel" id="result2" class="text_input" maxlength="1">
       <br>
 
         <label for="result3"> VASCO DA GAMA Rj  </label>   <label for="result4"> FORTALEZA Ce  </label><br>
-        <input type="tel" id="result3" class="text_input" maxlength="1"> X
+        <input type="tel" id="result3" class="text_input1" maxlength="1"> X
         <input type="tel" id="result4" class="text_input" maxlength="1">
      <br>
 
         <label for="result5"> CHAPECOENSE SC  </label>  <label for="result6"> PONTE PRETA SP  </label><br>
-        <input type="tel" id="result5" class="text_input" maxlength="1"> X
+        <input type="tel" id="result5" class="text_input1" maxlength="1"> X
         <input type="tel" id="result6" class="text_input" maxlength="1"><br>
       
 
         <label for="result7"> CASCAVEL  </label>  <label for="result8"> HERCILIO LUZ SP  </label><br>
 
-        <input type="tel" id="result7" class="text_input" maxlength="1"> X
+        <input type="tel" id="result7" class="text_input1" maxlength="1"> X
         <input type="tel" id="result8" class="text_input" maxlength="1">
       
         <button class="btnApostar" onclick="exibirAposta()">Apostar</button><br>
