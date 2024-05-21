@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostas de Futebol</title>
+    <link rel="stylesheet" href="styles.css">
+   <style>
+    body {
+        background-color: #000;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+   
+
+    .content {
+        background-color: green;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background: linear-gradient(90deg, blue, green ,red); 
+        color:white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    h1 {
+        color: #333333;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+
+    .Nome {
+        margin-bottom: 20px;
+        padding: 2px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 60%;
+        box-sizing: border-box;
+    }
+
+    .text_input {
+        position:absolute 
+        display: inline-block; padding-left: 2px;
+        flex-direction:center;
+        width: 110px;
+        margin: 0 px;
+        padding: 0px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+        margin-bottom: 2px;
+        text-align:center;
+        justify-content:center;
+        
+    }
+
+    .btnApostar {
+        border: 0;
+        padding: 15px 0;
+        background-color: gold;
+        color: #000;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+        width: 60%;
+        margin-top: 20px;
+        border-radius:10px;
+    }
+
+    .btnApostar:hover {
+        background-color: #27ae60;
+    }
+
+    label[for]{
+        display: inline; padding: px;
+        color:white;
+        font-size:10px;
+        margin-right:20px;
+        text-align:center;
+    }
+    label[for="result2"]{
+         
+         margin-left:20%;
+    }
+    [for="result4"]{
+            margin-left:20%;
+    }
+    [for="result6"]{
+        margin-left:20%;
+    }
+    [for="result8"]{
+        margin-left:20%;
+    }
+    .hora {
+        width:140px;
+        text-align:center;
+        margin-left:60%;
+        border-radius:16px;
+    }
+    .envia {
+        height:30px;
+        margin-bottom:2px;
+    }
+</style>
+</head>
+<body>
+<div class="content">
+<input type="text"  class="hora" value=" hoaraio limite 16:50" readonly  >
+    <h1>Apostas de BOLAO</h1>
+
+    <div id="form">
+        <label for="name">Nome</label><br>
+        <input class="Nome" type="text" id="name"placeholder="Nome"><br>
+      
+        <label for="result1"> RED BULL BRAGATINO Sp </label>  <label class="f" for="result2"> SOUZA Pb  </label><br>
+        <input type="tel" id="result1" class="text_input" maxlength="1"placeholder="RED BULL BRAGATINO Sp"> X
+        <input type="tel" id="result2" class="text_input" maxlength="1"placeholder="SOUZA Pb ">
+      <br>
+
+        <label for="result3"> VASCO DA GAMA Rj  </label>   <label for="result4"> FORTALEZA Ce  </label><br>
+        <input type="tel" id="result3" class="text_input" maxlength="1"> X
+        <input type="tel" id="result4" class="text_input" maxlength="1">
+     <br>
+
+        <label for="result5"> CHAPECOENSE SC  </label>  <label for="result6"> PONTE PRETA SP  </label><br>
+        <input type="tel" id="result5" class="text_input" maxlength="1"> X
+        <input type="tel" id="result6" class="text_input" maxlength="1"><br>
+      
+
+        <label for="result7"> CASCAVEL  </label>  <label for="result8"> HERCILIO LUZ SP  </label><br>
+
+        <input type="tel" id="result7" class="text_input" maxlength="1"> X
+        <input type="tel" id="result8" class="text_input" maxlength="1">
+      
+        <button class="btnApostar" onclick="exibirAposta()">Apostar</button><br>
+        <br>
+R$ 1.00 Acertado Ganhar R$ 1,000,00
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+             
+              
+                <div id="apostaNome"></div>
+               <br>
+               <label > R$ 1.00 Acertado Ganhar R$ 1000.00</label><br><br>
+                <button onclick="sendWhatsApp()" class="envia">Enviar via WhatsApp</button><br>
+                 
+            </div>
+          
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("PIX copiado para a área de transferência!");
+        }
+
+        function exibirAposta() {
+            var nomeApostador = document.getElementById("name").value;
+            document.getElementById("apostaNome").innerText = "Aposta de: " + nomeApostador;
+            openModal();
+        }
+
+        function camposPreenchidos() {
+            var nome = document.getElementById("name").value;
+            var resultados = document.querySelectorAll(".text_input");
+            var preenchidos = true;
+
+            if (nome === "") {
+                preenchidos = false;
+            }
+
+            resultados.forEach(function(resultado) {
+                if (resultado.value === "") {
+                    preenchidos = false;
+                }
+            });
+
+            return preenchidos;
+        }
+
+        function sendWhatsApp() {
+    if (camposPreenchidos()) {
+        var agora = new Date();
+        var horaAtual = agora.getHours();
+        var minutosAtual = agora.getMinutes();
+
+        if (horaAtual > 16 || (horaAtual === 16 && minutosAtual > 50)) {
+            document.getElementById('exibirAposta').disabled = true;
+            document.getElementById('exibirAposta').style.backgroundColor = 'red';
+            alert('O tempo limite para jogar foi excedido até 14:50.');
+            return;
+        }
+
+        var name = document.getElementById("name").value;
+        var result1 = document.getElementById("result1").value;
+        var result2 = document.getElementById("result2").value;
+        var result3 = document.getElementById("result3").value;
+        var result4 = document.getElementById("result4").value;
+        var result5 = document.getElementById("result5").value;
+        var result6 = document.getElementById("result6").value;
+        var result7 = document.getElementById("result7").value;
+        var result8 = document.getElementById("result8").value;
+
+        var time1 = "BRAGATINO " + result1 + " x " + result2 + " SOUZA Pb";
+        var time2 = "VASCO DA GAMA " + result3 + " x " + result4 + " FORTALEZA Ce";
+        var time3 = "CHAPECOENSE Sc " + result5 + " x " + result6 + " PONTE PRETA Sp";
+        var time4 = "CASCAVEL Pr " + result7 + " x " + result8 + " HERCILIO LUZ Sc";
+
+        // Gerar o código de 6 dígitos
+        const codigo = Math.floor(100000 + Math.random() * 900000);
+        var responsabilidade = "E de Responsabilidade do Apostador Conferir sua pule antes da Extracao*\n\n*boa sorte";
+        
+        var payout = 1000;
+        const multi = "MULTIJOGO";
+        
+
+        var mensagem = `${multi}
+            
+${name}, sua aposta foi registrada com sucesso!
+
+             DATA E HORA ATUAL
+*Data: ${agora.toLocaleDateString()}*       *Hora: ${agora.toLocaleTimeString()}*
+
+${time1}
+
+${time2}
+
+${time3}
+
+${time4}
+
+*Nº Controle da Aposta*: *${codigo}*
+A GANHAR: R$${payout.toFixed(2)}
+
+*${responsabilidade}*`;
+
+        var numeroWhatsApp = "71992290058";
+
+        var mensagemEncoded = encodeURIComponent(mensagem);
+        var linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagemEncoded}`;
+
+        window.open(linkWhatsApp, '_blank');
+    } else {
+        alert("Por favor, preencha todos os campos antes de enviar via WhatsApp.");
+    }
+}
+function imprimir() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
+ 
