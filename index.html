@@ -71,10 +71,10 @@
 
     .Nome {
         margin-bottom: 20px;
-        padding: 2px;
+        padding: px;
         border: 2px solid #3498db;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 10px;
         width: 60%;
         box-sizing: border-box;
     }
@@ -119,19 +119,24 @@
         font-size:10px;
         margin-right:20px;
         text-align:center;
+        font-weight:bold;
     }
     label[for="result2"]{
          
          margin-left:20%;
+         font-weight:bold;
     }
     [for="result4"]{
             margin-left:20%;
+            font-weight:bold;
     }
     [for="result6"]{
         margin-left:20%;
+        font-weight:bold;
     }
     [for="result8"]{
         margin-left:20%;
+        font-weight:bold;
     }
     .hora {
         width:140px;
@@ -155,8 +160,8 @@
         <input class="Nome" type="text" id="name"placeholder="Nome"><br>
       
         <label for="result1"> RED BULL BRAGATINO Sp </label>  <label class="f" for="result2"> SOUZA Pb  </label><br>
-        <input type="tel" id="result1" class="text_input" maxlength="1"placeholder="RED BULL BRAGATINO Sp"> X
-        <input type="tel" id="result2" class="text_input" maxlength="1"placeholder="SOUZA Pb ">
+        <input type="tel" id="result1" class="text_input" maxlength="1"> X
+        <input type="tel" id="result2" class="text_input" maxlength="1">
       <br>
 
         <label for="result3"> VASCO DA GAMA Rj  </label>   <label for="result4"> FORTALEZA Ce  </label><br>
@@ -264,29 +269,34 @@ R$ 1.00 Acertado Ganhar R$ 1,000,00
 
         // Gerar o código de 6 dígitos
         const codigo = Math.floor(100000 + Math.random() * 900000);
+        
         var responsabilidade = "E de Responsabilidade do Apostador Conferir sua pule antes da Extracao*\n\n*boa sorte";
         
+        var titime ="https://placar-exato4.webnode.page/esportiva-multijogo/"
         var payout = 1000;
-        const multi = "MULTIJOGO";
+        const multi = "BET-MULTIJOGO";
         
 
-        var mensagem = `${multi}
-            
-${name}, sua aposta foi registrada com sucesso!
+        var mensagem = `${titime}
+                    ${multi}
+    sua aposta foi registrada com sucesso!
+          
+   Ola ${name}
 
-             DATA E HORA ATUAL
-*Data: ${agora.toLocaleDateString()}*       *Hora: ${agora.toLocaleTimeString()}*
+                 DATA E HORA ATUAL
+       *Data: ${agora.toLocaleDateString()}*          *Hora: ${agora.toLocaleTimeString()}*
 
-${time1}
+         *${time1}*
 
-${time2}
+         *${time2}*
 
-${time3}
+         *${time3}*
 
-${time4}
+         *${time4}*
+         
+      VALOR A RECEBER : R$${payout.toFixed(2)}
 
-*Nº Controle da Aposta*: *${codigo}*
-A GANHAR: R$${payout.toFixed(2)}
+  *Nº Controle da Aposta*: *${codigo}*
 
 *${responsabilidade}*`;
 
